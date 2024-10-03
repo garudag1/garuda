@@ -1,0 +1,11 @@
+import { prepareContractCall, sendTransaction } from "thirdweb";
+
+const transaction = await prepareContractCall({
+  contract,
+  method: "function addRewardToken(address rewardToken, uint256 rewardPerBlock, uint256 startBlock, uint256 endBlock)",
+  params: [rewardToken, rewardPerBlock, startBlock, endBlock]
+});
+const { transactionHash } = await sendTransaction({
+  transaction,
+  account
+});
